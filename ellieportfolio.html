@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ellie Harris – Portfolio</title>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f9f7f2;
+        color: #0b1c2c;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        text-align: center;
+        padding: 60px 20px 30px 20px;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      header p {
+        max-width: 600px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+        color: #222;
+      }
+
+      section {
+        padding: 50px 10%;
+      }
+
+      h2 {
+        color: #001b3a;
+        border-bottom: 2px solid #001b3a;
+        display: inline-block;
+        margin-bottom: 25px;
+      }
+
+      .carousel-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .carousel {
+        display: flex;
+        gap: 20px;
+        animation: slowScroll 150s linear infinite;
+      }
+
+      .tiktok-card {
+        flex: 0 0 300px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .tiktok-card:hover {
+        transform: scale(1.03);
+      }
+
+      .tiktok-card iframe {
+        width: 100%;
+        height: 533px; /* TikTok 9:16 aspect ratio */
+        border-radius: 12px;
+        border: none;
+      }
+
+      .tiktok-description {
+        margin-top: 10px;
+        font-size: 0.95rem;
+        color: #333;
+      }
+
+      @keyframes slowScroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      .carousel-container:hover .carousel {
+        animation-play-state: paused;
+      }
+
+      .putti-section img {
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 15px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        background: #001b3a;
+        color: #f9f7f2;
+      }
+
+      footer a {
+        color: #f9f7f2;
+        text-decoration: underline;
+      }
+
+      /* --- MOBILE LAYOUT ADJUSTMENTS --- */
+      @media (max-width: 768px) {
+        header {
+          padding: 40px 15px 20px 15px;
+        }
+
+        header h1 {
+          font-size: 2rem;
+        }
+
+        section {
+          padding: 30px 5%;
+        }
+
+        .carousel {
+          animation: slowScrollMobile 150s linear infinite;
+        }
+
+        .tiktok-card {
+          flex: 0 0 70%; /* fewer TikToks visible on mobile */
+          margin-right: 10px;
+        }
+
+        .tiktok-card iframe {
+          height: 420px;
+        }
+
+        @keyframes slowScrollMobile {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-100%); }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Ellie Harris</h1>
+      <p>
+        Digital artist, coder, and designer passionate about animation, creative storytelling, and bringing ideas to life through code and design.
+      </p>
+    </header>
+
+     <section id="tiktok">
+        <h2>TikTok Animation Highlights</h2>
+        <div class="carousel-container">
+          <div class="carousel">
+
+            <div class="tiktok-card">
+              <iframe src="https://www.tiktok.com/embed/v2/7385151704909630752" allowfullscreen></iframe>
+              <div class="tiktok-description">
+                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
+                Description of the animation or its story.
+              </div>
+            </div>
+
+            <div class="tiktok-card">
+              <iframe src="https://www.tiktok.com/embed/v2/7360701400831003937" allowfullscreen></iframe>
+              <div class="tiktok-description">
+                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
+                Description of the animation or its story.
+              </div>
+            </div>
+
+            <div class="tiktok-card">
+              <iframe src="https://www.tiktok.com/embed/v2/7374028299065953568" allowfullscreen></iframe>
+              <div class="tiktok-description">
+                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
+                Description of the animation or its story.
+              </div>
+            </div>
+
+            <div class="tiktok-card">
+              <iframe src="https://www.tiktok.com/embed/v2/7359345460630310176" allowfullscreen></iframe>
+              <div class="tiktok-description">
+                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
+                Description of the animation or its story.
+              </div>
+            </div>
+
+            <div class="tiktok-card">
+              <iframe src="https://www.tiktok.com/embed/v2/7397433978149440801" allowfullscreen></iframe>
+              <div class="tiktok-description">
+                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
+                Description of the animation or its story.
+              </div>
+            </div>
+
+            <div class="tiktok-card">
+              <iframe src="https://www.tiktok.com/embed/v2/7398133168327003424" allowfullscreen></iframe>
+              <div class="tiktok-description">
+                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
+                Description of the animation or its story.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+    <section id="putti">
+      <h2>Professional Design & Web Projects</h2>
+      <div class="putti-section">
+        <h3>Putti Studio Website Redesign</h3>
+        <p>
+          I was hired by Putti Studio to assist with a full redesign of an existing company website (The complete pet company). My work included creating new brand logos in Adobe Illustrator and coding the refreshed design into a Shopify theme.
+        </p>
+        <img src="images/putti-before.jpg" alt="Before redesign" />
+        <img src="images/putti-after.jpg" alt="After redesign" />
+
+        <h3>Putti Studio Company Website Design</h3>
+        <p>
+          I was later hired by Putti Studio to develop their full company website. This involved building the home page from the provided design briefs, implementing responsive layouts, and I am still continuing to refine the site's design.
+        </p>
+        <img src="images/putti-newsite1.jpg" alt="Putti company site design" />
+        <img src="images/putti-newsite2.jpg" alt="Putti company site design work in progress" />
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        <a href="https://www.tiktok.com/@gnashstudio_art" target="_blank">Visit my TikTok</a> |
+        <a href="#" onclick="alert('Upload your CV and link here')">Download CV</a>
+      </p>
+    </footer>
+  </body>
+</html>

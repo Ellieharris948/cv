@@ -4,43 +4,335 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ellie Harris – Portfolio</title>
+
     <style>
+      :root {
+        --paper: #f9f7f2;
+        --ink: #0b1c2c;
+        --muted: rgba(11, 28, 44, 0.72);
+        --line: rgba(11, 28, 44, 0.55);
+        --soft-line: rgba(11, 28, 44, 0.18);
+        --teal: #78b8b1;
+        --accent: #f28a55;
+        --card: #ffffff;
+        --shadow: 0 18px 45px rgba(11, 28, 44, 0.10);
+        --shadow2: 0 12px 28px rgba(11, 28, 44, 0.10);
+        --radius: 22px;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+
       body {
-        font-family: 'Inter', sans-serif;
-        background-color: #f9f7f2;
-        color: #0b1c2c;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        background: var(--paper);
+        color: var(--ink);
         margin: 0;
         padding: 0;
       }
 
-      header {
-        text-align: center;
-        padding: 60px 20px 30px 20px;
+      a { color: inherit; }
+      img { max-width: 100%; display: block; }
+
+      /* ---- Top Bar ---- */
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(249, 247, 242, 0.78);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--soft-line);
       }
 
-      header h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-      }
-
-      header p {
-        max-width: 600px;
+      .topbar-inner {
+        max-width: 1100px;
         margin: 0 auto;
-        font-size: 1.1rem;
-        color: #222;
+        padding: 12px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--teal), #cfeceb);
+        border: 2px solid var(--line);
+        box-shadow: 0 10px 22px rgba(11, 28, 44, 0.10);
+      }
+
+      .brand-text {
+        line-height: 1.05;
+      }
+      .brand-text strong {
+        display: block;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+      }
+      .brand-text span {
+        display: block;
+        font-size: 0.92rem;
+        color: var(--muted);
+      }
+
+      nav {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .chip {
+        font-size: 0.92rem;
+        padding: 8px 12px;
+        border: 1.5px solid var(--line);
+        border-radius: 999px;
+        text-decoration: none;
+        color: var(--ink);
+        background: #fff;
+        transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      }
+      .chip:hover {
+        transform: translateY(-1px);
+        border-color: var(--ink);
+        box-shadow: 0 10px 22px rgba(11, 28, 44, 0.08);
+      }
+
+      .chip.primary {
+        background: linear-gradient(180deg, #fff 0%, #fff7f3 100%);
+        border-color: rgba(242, 138, 85, 0.85);
+      }
+
+      /* ---- Layout ---- */
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 28px 18px 60px;
       }
 
       section {
-        padding: 50px 10%;
+        margin-top: 38px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 16px;
       }
 
       h2 {
-        color: #001b3a;
-        border-bottom: 2px solid #001b3a;
+        margin: 0;
+        font-size: 1.75rem;
+        font-weight: 900;
+        letter-spacing: 0.01em;
         display: inline-block;
-        margin-bottom: 25px;
+        border-bottom: 2px solid var(--ink);
+        padding-bottom: 6px;
       }
 
+      .accent { color: var(--accent); }
+
+      .subtext {
+        margin: 8px 0 0;
+        color: var(--muted);
+        max-width: 72ch;
+        font-size: 1.03rem;
+        line-height: 1.55;
+      }
+
+      /* ---- Hero ---- */
+      .hero {
+        margin-top: 14px;
+        border: 2px solid var(--line);
+        border-radius: var(--radius);
+        background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .hero-top {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 0;
+      }
+
+      .hero-left {
+        padding: 28px 26px;
+      }
+
+      .hero-title {
+        font-size: 2.55rem;
+        margin: 0;
+        font-weight: 950;
+        letter-spacing: 0.01em;
+      }
+
+      .hero-title .underline {
+        border-bottom: 4px solid var(--teal);
+        padding-bottom: 2px;
+      }
+
+      .hero-right {
+        padding: 22px;
+        border-left: 1px solid var(--soft-line);
+        background:
+          radial-gradient(1200px 420px at 80% 10%, rgba(120, 184, 177, 0.22), transparent 45%),
+          radial-gradient(900px 380px at 10% 90%, rgba(242, 138, 85, 0.18), transparent 50%),
+          #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        justify-content: center;
+      }
+
+      .profile {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 999px;
+        border: 2px solid var(--line);
+        overflow: hidden;
+        background: #e9ecef;
+      }
+
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .profile .meta strong { display: block; font-weight: 900; }
+      .profile .meta span { display: block; color: var(--muted); }
+
+      .hero-links {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 11px 14px;
+        border-radius: 14px;
+        border: 2px solid var(--line);
+        background: #fff;
+        text-decoration: none;
+        font-weight: 800;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 26px rgba(11, 28, 44, 0.10);
+        border-color: var(--ink);
+      }
+
+      .btn.accent {
+        border-color: rgba(242, 138, 85, 0.9);
+        background: linear-gradient(180deg, #fff 0%, #fff7f3 100%);
+      }
+
+      .divider-bar {
+        height: 12px;
+        background: linear-gradient(90deg, var(--teal), rgba(120, 184, 177, 0.25), var(--accent));
+        border-top: 2px solid var(--line);
+      }
+
+      /* ---- Highlights ---- */
+      .highlight-shell {
+        background: #fff;
+        border: 2px solid var(--line);
+        border-radius: var(--radius);
+        padding: 18px;
+        box-shadow: var(--shadow2);
+      }
+
+      .highlight-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .highlight-card {
+        text-align: left;
+        border: 1.5px solid rgba(11, 28, 44, 0.22);
+        background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+        border-radius: 18px;
+        padding: 14px 14px 12px;
+        cursor: pointer;
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .highlight-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(11, 28, 44, 0.55);
+        box-shadow: 0 10px 26px rgba(11, 28, 44, 0.12);
+      }
+
+      .highlight-card[aria-expanded="true"] {
+        border-color: var(--ink);
+        box-shadow: 0 14px 34px rgba(11, 28, 44, 0.14);
+      }
+
+      .kicker {
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(11, 28, 44, 0.72);
+        margin-bottom: 8px;
+      }
+
+      .value {
+        font-size: 1.12rem;
+        line-height: 1.25;
+        color: var(--ink);
+      }
+
+      .strong { font-weight: 950; }
+
+      .dot {
+        opacity: 0.55;
+        padding: 0 6px;
+      }
+
+      .meta {
+        margin-top: 8px;
+        font-size: 0.92rem;
+        color: rgba(11, 28, 44, 0.72);
+      }
+
+      .panel-wrap { margin-top: 14px; }
+      .panel {
+        background: #fff;
+        border: 2px solid var(--line);
+        border-radius: var(--radius);
+        padding: 16px 18px;
+        box-shadow: 0 14px 30px rgba(11, 28, 44, 0.06);
+      }
+      .panel h3 { margin: 0 0 8px 0; }
+      .panel p { margin: 0 0 10px 0; color: var(--muted); }
+      .panel ul { margin: 0; padding-left: 18px; }
+
+      /* ---- TikTok ---- */
       .carousel-container {
         position: relative;
         overflow: hidden;
@@ -50,35 +342,9 @@
 
       .carousel {
         display: flex;
-        gap: 20px;
-        animation: slowScroll 150s linear infinite;
-      }
-
-      .tiktok-card {
-        flex: 0 0 300px;
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        padding: 10px;
-        text-align: center;
-        transition: transform 0.3s ease;
-      }
-
-      .tiktok-card:hover {
-        transform: scale(1.03);
-      }
-
-      .tiktok-card iframe {
-        width: 100%;
-        height: 533px; /* TikTok 9:16 aspect ratio */
-        border-radius: 12px;
-        border: none;
-      }
-
-      .tiktok-description {
-        margin-top: 10px;
-        font-size: 0.95rem;
-        color: #333;
+        gap: 18px;
+        animation: slowScroll 140s linear infinite;
+        will-change: transform;
       }
 
       @keyframes slowScroll {
@@ -90,17 +356,151 @@
         animation-play-state: paused;
       }
 
-      .putti-section img {
-        width: 100%;
-        border-radius: 12px;
-        margin-bottom: 15px;
+      .tiktok-card {
+        flex: 0 0 320px;
+        background: #fff;
+        border-radius: var(--radius);
+        border: 2px solid var(--line);
+        box-shadow: var(--shadow2);
+        padding: 12px;
+        transition: transform 0.22s ease;
       }
 
+      .tiktok-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .tiktok-frame {
+        width: 100%;
+        aspect-ratio: 9 / 16;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(11, 28, 44, 0.18);
+        background: #000;
+      }
+
+      .tiktok-frame iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+
+      .tiktok-description {
+        margin-top: 10px;
+        font-size: 0.95rem;
+        color: rgba(11, 28, 44, 0.85);
+        line-height: 1.4;
+      }
+
+      /* ---- Projects ---- */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .project {
+        background: #fff;
+        border: 2px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow2);
+        overflow: hidden;
+      }
+
+      .project .banner {
+        height: 170px;
+        background:
+          radial-gradient(900px 240px at 10% 20%, rgba(120, 184, 177, 0.28), transparent 55%),
+          radial-gradient(900px 240px at 80% 80%, rgba(242, 138, 85, 0.22), transparent 55%),
+          #fff;
+        border-bottom: 1px solid var(--soft-line);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(11, 28, 44, 0.65);
+        font-weight: 800;
+      }
+
+      .project .content {
+        padding: 16px 18px;
+      }
+
+      .project h3 {
+        margin: 0 0 8px 0;
+        font-size: 1.15rem;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .tag {
+        font-size: 0.86rem;
+        padding: 7px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(11, 28, 44, 0.22);
+        background: #fff;
+        color: rgba(11, 28, 44, 0.86);
+      }
+
+      /* ---- Experience (bottom) ---- */
+      .timeline {
+        display: grid;
+        gap: 14px;
+      }
+
+      .role {
+        background: #fff;
+        border: 2px solid var(--line);
+        border-radius: var(--radius);
+        padding: 16px 18px;
+        box-shadow: 0 14px 30px rgba(11, 28, 44, 0.06);
+      }
+
+      .role-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(11, 28, 44, 0.16);
+      }
+
+      .role-title {
+        color: var(--accent);
+        font-weight: 950;
+      }
+
+      .role-dates {
+        color: rgba(11, 28, 44, 0.75);
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .role ul { margin: 10px 0 0; padding-left: 18px; }
+      .role li { margin: 7px 0; color: rgba(11, 28, 44, 0.88); }
+
+      /* ---- Footer ---- */
       footer {
-        text-align: center;
-        padding: 40px 20px;
+        margin-top: 40px;
         background: #001b3a;
         color: #f9f7f2;
+        padding: 34px 18px;
+      }
+
+      .footer-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        flex-wrap: wrap;
       }
 
       footer a {
@@ -108,33 +508,20 @@
         text-decoration: underline;
       }
 
-      /* --- MOBILE LAYOUT ADJUSTMENTS --- */
-      @media (max-width: 768px) {
-        header {
-          padding: 40px 15px 20px 15px;
-        }
+      /* ---- Responsive ---- */
+      @media (max-width: 980px) {
+        .hero-top { grid-template-columns: 1fr; }
+        .hero-right { border-left: 0; border-top: 1px solid var(--soft-line); }
+        .highlight-grid { grid-template-columns: 1fr 1fr; }
+        .grid-2 { grid-template-columns: 1fr; }
+        .tiktok-card { flex-basis: 300px; }
+      }
 
-        header h1 {
-          font-size: 2rem;
-        }
-
-        section {
-          padding: 30px 5%;
-        }
-
-        .carousel {
-          animation: slowScrollMobile 150s linear infinite;
-        }
-
-        .tiktok-card {
-          flex: 0 0 70%; /* fewer TikToks visible on mobile */
-          margin-right: 10px;
-        }
-
-        .tiktok-card iframe {
-          height: 420px;
-        }
-
+      @media (max-width: 560px) {
+        .hero-title { font-size: 2.05rem; }
+        .highlight-grid { grid-template-columns: 1fr; }
+        .tiktok-card { flex-basis: 78vw; }
+        .carousel { animation: slowScrollMobile 190s linear infinite; }
         @keyframes slowScrollMobile {
           0% { transform: translateX(0); }
           100% { transform: translateX(-100%); }
@@ -142,96 +529,457 @@
       }
     </style>
   </head>
+
   <body>
-    <header>
-      <h1>Ellie Harris</h1>
-      <p>
-        Digital artist, coder, and designer passionate about animation, creative storytelling, and bringing ideas to life through code and design.
-      </p>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="#top">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div class="brand-text">
+            <strong>Eleanor Harris</strong>
+            <span>Developer • Artist • Animator</span>
+            <span>
+              Final-year Computer Science student at the University of Birmingham.
+              Took a year out in 2022–2023 for industry experience.
+            </span>
+          </div>
+        </a>
+      </div>
     </header>
 
-     <section id="tiktok">
-        <h2>TikTok Animation Highlights</h2>
-        <div class="carousel-container">
-          <div class="carousel">
+    <main id="top" class="container">
+      <!-- HERO -->
+      <section class="hero" aria-label="Intro">
+        <div class="hero-top">
+          <div class="hero-left">
+            <h1 class="hero-title"><span class="underline">Eleanor</span> Harris</h1>
+            <p class="subtext">
+              Digital artist, coder, and designer focused on animation, creative storytelling, and building polished web experiences.
+            </p>
 
-            <div class="tiktok-card">
-              <iframe src="https://www.tiktok.com/embed/v2/7385151704909630752" allowfullscreen></iframe>
-              <div class="tiktok-description">
-                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
-                Description of the animation or its story.
+            <div class="hero-links" style="margin-top: 16px;">
+              <a class="btn accent" href="#tiktok">Watch animations</a>
+              <a class="btn" href="#projects">See projects</a>
+              <a class="btn" href="#experience">Experience</a>
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <div class="profile">
+              <div class="avatar">
+                <!-- Upload: /images/profile.jpg -->
+                <img src="images/profile.jpg" alt="Profile photo" />
+              </div>
+              <div class="meta">
+                <strong>Portfolio</strong>
+                <span><a href="https://www.gnashstudio.com" target="_blank" rel="noreferrer">www.gnashstudio.com</a></span>
               </div>
             </div>
 
-            <div class="tiktok-card">
-              <iframe src="https://www.tiktok.com/embed/v2/7360701400831003937" allowfullscreen></iframe>
-              <div class="tiktok-description">
-                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
-                Description of the animation or its story.
-              </div>
+            <div class="hero-links">
+              <!-- Upload: /cv.pdf (or change to your file name) -->
+              <a class="btn" href="cv.pdf" target="_blank" rel="noreferrer">Download CV</a>
+              <a class="btn" href="https://www.tiktok.com/@gnashstudio_art" target="_blank" rel="noreferrer">TikTok</a>
+              <a class="btn" href="#projects">Case studies</a>
+            </div>
+          </div>
+        </div>
+        <div class="divider-bar" aria-hidden="true"></div>
+      </section>
+
+      <!-- HIGHLIGHTS -->
+      <section id="highlights">
+        <div class="section-head">
+          <h2>Highlights <span class="accent">at a glance</span></h2>
+        </div>
+
+        <div class="highlight-shell">
+          <div class="highlight-grid" role="list">
+            <button class="highlight-card" type="button" data-panel="h1" role="listitem" aria-controls="h1" aria-expanded="false">
+              <div class="kicker">TikTok</div>
+              <div class="value"><span class="strong">25k+</span> followers <span class="dot">•</span> <span class="accent strong">2M+</span> likes</div>
+              <div class="meta">Hand-drawn animation account</div>
+            </button>
+
+            <button class="highlight-card" type="button" data-panel="h2" role="listitem" aria-controls="h2" aria-expanded="false">
+              <div class="kicker">Viral videos</div>
+              <div class="value"><span class="strong">4</span> videos <span class="dot">•</span> <span class="accent strong">1M+</span> views</div>
+              <div class="meta">Top video: 2.2M views</div>
+            </button>
+
+            <button class="highlight-card" type="button" data-panel="h3" role="listitem" aria-controls="h3" aria-expanded="false">
+              <div class="kicker">Industry role</div>
+              <div class="value"><span class="strong">Front-end</span> <span class="dot">+</span> back-end support</div>
+              <div class="meta">App + website development</div>
+            </button>
+
+            <button class="highlight-card" type="button" data-panel="h4" role="listitem" aria-controls="h4" aria-expanded="false">
+              <div class="kicker">Data systems</div>
+              <div class="value"><span class="strong">APIs</span> <span class="dot">•</span> pipelines <span class="dot">•</span> <span class="accent strong">SQL</span></div>
+              <div class="meta">Large-scale ingestion work</div>
+            </button>
+          </div>
+
+          <div class="panel-wrap" aria-live="polite">
+            <div class="panel" id="h1" hidden>
+              <h3>TikTok</h3>
+              <p>Series-based animation, character-driven moments, and punchy storytelling built for mobile.</p>
+              <ul>
+                <li>Strong repeat viewers and engagement</li>
+                <li>Clean readability and pacing optimised for short form</li>
+              </ul>
             </div>
 
-            <div class="tiktok-card">
-              <iframe src="https://www.tiktok.com/embed/v2/7374028299065953568" allowfullscreen></iframe>
-              <div class="tiktok-description">
-                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
-                Description of the animation or its story.
-              </div>
+            <div class="panel" id="h2" hidden>
+              <h3>Viral reach</h3>
+              <p>Multiple videos crossed 1M+ views with one reaching 2.2M views and 500k+ likes.</p>
+              <ul>
+                <li>Focused hooks, timing, and clear visual beats</li>
+                <li>Consistent posting and recognisable style</li>
+              </ul>
             </div>
 
-            <div class="tiktok-card">
-              <iframe src="https://www.tiktok.com/embed/v2/7359345460630310176" allowfullscreen></iframe>
-              <div class="tiktok-description">
-                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
-                Description of the animation or its story.
-              </div>
+            <div class="panel" id="h3" hidden>
+              <h3>Soft Pauer</h3>
+              <p>Built and maintained user-facing features for a live app + website, with occasional server-side work.</p>
+              <ul>
+                <li>Responsive UI improvements and bug fixes</li>
+                <li>Testing support and release-ready changes</li>
+              </ul>
             </div>
 
-            <div class="tiktok-card">
-              <iframe src="https://www.tiktok.com/embed/v2/7397433978149440801" allowfullscreen></iframe>
-              <div class="tiktok-description">
-                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
-                Description of the animation or its story.
-              </div>
+            <div class="panel" id="h4" hidden>
+              <h3>IP Registry</h3>
+              <p>Expanded and populated a large database using automated pipelines and API integrations.</p>
+              <ul>
+                <li>Cleaned, validated, and structured data for ingestion</li>
+                <li>Synced from multiple external sources</li>
+              </ul>
             </div>
-
-            <div class="tiktok-card">
-              <iframe src="https://www.tiktok.com/embed/v2/7398133168327003424" allowfullscreen></iframe>
-              <div class="tiktok-description">
-                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
-                Description of the animation or its story.
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
 
+      <!-- TIKTOK -->
+      <section id="tiktok">
+        <div class="section-head">
+          <h2>TikTok Animation <span class="accent">Highlights</span></h2>
+        </div>
 
-    <section id="putti">
-      <h2>Professional Design & Web Projects</h2>
-      <div class="putti-section">
-        <h3>Putti Studio Website Redesign</h3>
-        <p>
-          I was hired by Putti Studio to assist with a full redesign of an existing company website (The complete pet company). My work included creating new brand logos in Adobe Illustrator and coding the refreshed design into a Shopify theme.
+        <p class="subtext">
+          A selection of hand-drawn animation work.
         </p>
-        <img src="images/putti-before.jpg" alt="Before redesign" />
-        <img src="images/putti-after.jpg" alt="After redesign" />
 
-        <h3>Putti Studio Company Website Design</h3>
-        <p>
-          I was later hired by Putti Studio to develop their full company website. This involved building the home page from the provided design briefs, implementing responsive layouts, and I am still continuing to refine the site's design.
+        <div class="carousel-container" style="margin-top: 16px;">
+          <div class="carousel">
+            <!-- TikTok Embed (iframe v2) -->
+            <div class="tiktok-card">
+              <div class="tiktok-frame">
+                <iframe
+                  src="https://www.tiktok.com/embed/v2/7385151704909630752?autoplay=1&mute=1"
+                  allow="autoplay; encrypted-media; fullscreen"
+                  scrolling="no"
+                  title="TikTok video 7385151704909630752"
+                ></iframe>
+              </div>
+              <div class="tiktok-description">
+                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
+                Description of the animation or its story.
+              </div>
+            </div>
+
+            <div class="tiktok-card">
+              <div class="tiktok-frame">
+                <iframe
+                  src="https://www.tiktok.com/embed/v2/7360701400831003937?autoplay=1&mute=1"
+                  allow="autoplay; encrypted-media; fullscreen"
+                  scrolling="no"
+                  title="TikTok video 7360701400831003937"
+                ></iframe>
+              </div>
+              <div class="tiktok-description">
+                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
+                Description of the animation or its story.
+              </div>
+            </div>
+
+            <div class="tiktok-card">
+              <div class="tiktok-frame">
+                <iframe
+                  src="https://www.tiktok.com/embed/v2/7374028299065953568?autoplay=1&mute=1"
+                  allow="autoplay; encrypted-media; fullscreen"
+                  scrolling="no"
+                  title="TikTok video 7374028299065953568"
+                ></iframe>
+              </div>
+              <div class="tiktok-description">
+                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
+                Description of the animation or its story.
+              </div>
+            </div>
+
+            <div class="tiktok-card">
+              <div class="tiktok-frame">
+                <iframe
+                  src="https://www.tiktok.com/embed/v2/7359345460630310176?autoplay=1&mute=1"
+                  allow="autoplay; encrypted-media; fullscreen"
+                  scrolling="no"
+                  title="TikTok video 7359345460630310176"
+                ></iframe>
+              </div>
+              <div class="tiktok-description">
+                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
+                Description of the animation or its story.
+              </div>
+            </div>
+
+            <div class="tiktok-card">
+              <div class="tiktok-frame">
+                <iframe
+                  src="https://www.tiktok.com/embed/v2/7397433978149440801?autoplay=1&mute=1"
+                  allow="autoplay; encrypted-media; fullscreen"
+                  scrolling="no"
+                  title="TikTok video 7397433978149440801"
+                ></iframe>
+              </div>
+              <div class="tiktok-description">
+                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
+                Description of the animation or its story.
+              </div>
+            </div>
+
+            <!-- If you meant this one (your latest code used 7398133168...) keep it here -->
+            <div class="tiktok-card">
+              <div class="tiktok-frame">
+                <iframe
+                  src="https://www.tiktok.com/embed/v2/7398133168327003424?autoplay=1&mute=1"
+                  allow="autoplay; encrypted-media; fullscreen"
+                  scrolling="no"
+                  title="TikTok video 7398133168327003424"
+                ></iframe>
+              </div>
+              <div class="tiktok-description">
+                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
+                Description of the animation or its story.
+              </div>
+            </div>
+
+            <!-- duplicate set for smoother looping -->
+            <div class="tiktok-card" aria-hidden="true">
+              <div class="tiktok-frame">
+                <iframe
+                  src="https://www.tiktok.com/embed/v2/7385151704909630752?autoplay=1&mute=1"
+                  allow="autoplay; encrypted-media; fullscreen"
+                  scrolling="no"
+                  title="TikTok video duplicate"
+                ></iframe>
+              </div>
+              <div class="tiktok-description">
+                <strong>More:</strong> @gnashstudio_art
+              </div>
+            </div>
+
+            <div class="tiktok-card" aria-hidden="true">
+              <div class="tiktok-frame">
+                <iframe
+                  src="https://www.tiktok.com/embed/v2/7360701400831003937?autoplay=1&mute=1"
+                  allow="autoplay; encrypted-media; fullscreen"
+                  scrolling="no"
+                  title="TikTok video duplicate"
+                ></iframe>
+              </div>
+              <div class="tiktok-description">
+                <strong>More:</strong> @gnashstudio_art
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="section-head">
+          <h2>Projects <span class="accent">& case studies</span></h2>
+        </div>
+
+        <p class="subtext">
+          Selected work across web, data systems, and design.
         </p>
-        <img src="images/putti-newsite1.jpg" alt="Putti company site design" />
-        <img src="images/putti-newsite2.jpg" alt="Putti company site design work in progress" />
-      </div>
-    </section>
+
+        <div class="grid-2" style="margin-top: 16px;">
+          <article class="project">
+            <div class="banner">
+              <!-- Upload: /images/project-putti-redesign.jpg and replace this banner div with an <img> if you prefer -->
+              Putti Studio — Shopify redesign
+            </div>
+            <div class="content">
+              <h3>Putti Studio Website Redesign</h3>
+              <p class="subtext" style="margin: 0;">
+                Created brand assets and helped implement a refreshed Shopify theme for an existing company website.
+              </p>
+              <div class="tags">
+                <span class="tag">Shopify</span>
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">Brand assets</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="banner">
+              Putti Studio — company website build
+            </div>
+            <div class="content">
+              <h3>Putti Studio Company Website</h3>
+              <p class="subtext" style="margin: 0;">
+                Built pages from design briefs, responsive layouts, and continued visual refinement across breakpoints.
+              </p>
+              <div class="tags">
+                <span class="tag">Responsive UI</span>
+                <span class="tag">Front-end build</span>
+                <span class="tag">Design-to-code</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="banner">
+              IP Registry — data pipelines
+            </div>
+            <div class="content">
+              <h3>Database Expansion & API Integrations</h3>
+              <p class="subtext" style="margin: 0;">
+                Built integrations to pull and sync information from multiple sources, then cleaned and validated data for ingestion.
+              </p>
+              <div class="tags">
+                <span class="tag">APIs</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Data pipelines</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="banner">
+              Etsy — product + fulfilment
+            </div>
+            <div class="content">
+              <h3>3D Printing & Custom Apparel</h3>
+              <p class="subtext" style="margin: 0;">
+                Designed, produced, and fulfilled bespoke orders — from modelling/printing through finishing and customer delivery.
+              </p>
+              <div class="tags">
+                <span class="tag">3D printing</span>
+                <span class="tag">Product design</span>
+                <span class="tag">Customer comms</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE (MOVED TO BOTTOM) -->
+      <section id="experience">
+        <div class="section-head">
+          <h2>Experience <span class="accent">& impact</span></h2>
+        </div>
+
+        <div class="timeline">
+          <article class="role">
+            <header class="role-head">
+              <h3>Soft Pauer <span class="role-title">— Junior Software Developer</span></h3>
+              <div class="role-dates">2022 – 2023</div>
+            </header>
+            <ul>
+              <li><strong>Front-end:</strong> Built and maintained user-facing features for a live app and website, improving usability and responsiveness.</li>
+              <li><strong>Back-end support:</strong> Helped with API endpoints, database integration, and server-side fixes when needed.</li>
+              <li><strong>Quality:</strong> Debugged issues and supported testing/release work.</li>
+            </ul>
+          </article>
+
+          <article class="role">
+            <header class="role-head">
+              <h3>Entrepreneur <span class="role-title">— Etsy store</span></h3>
+              <div class="role-dates">2022 – 2023</div>
+            </header>
+            <ul>
+              <li>Designed and 3D-printed custom figurines; painted and finished products.</li>
+              <li>Created custom apparel and handled customer communication end-to-end.</li>
+            </ul>
+          </article>
+
+          <article class="role">
+            <header class="role-head">
+              <h3>IP Registry <span class="role-title">— Software Developer</span></h3>
+              <div class="role-dates">Summer 2025</div>
+            </header>
+            <ul>
+              <li>Expanded and populated a large database using automated data pipelines.</li>
+              <li>Integrated external sources via APIs; cleaned and validated data for ingestion.</li>
+            </ul>
+          </article>
+
+          <article class="role">
+            <header class="role-head">
+              <h3>TikTok <span class="role-title">— Art & Animation creator</span></h3>
+              <div class="role-dates">2023 – Present</div>
+            </header>
+            <ul>
+              <li>25k+ followers and 2M+ total likes.</li>
+              <li>4 videos reached 1M+ views; top video reached 2.2M views and 500k+ likes.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
 
     <footer>
-      <p>
-        <a href="https://www.tiktok.com/@gnashstudio_art" target="_blank">Visit my TikTok</a> |
-        <a href="#" onclick="alert('Upload your CV and link here')">Download CV</a>
-      </p>
+      <div class="footer-inner">
+        <div>
+          <strong>Ellie Harris</strong><br />
+          <span style="opacity: 0.9;">Portfolio:</span>
+          <a href="https://www.gnashstudio.com" target="_blank" rel="noreferrer">gnashstudio.com</a>
+        </div>
+
+        <div>
+          <a href="https://www.tiktok.com/@gnashstudio_art" target="_blank" rel="noreferrer">TikTok</a>
+          &nbsp; • &nbsp;
+          <a href="#top">Back to top</a>
+        </div>
+      </div>
     </footer>
+
+    <script>
+      // Highlights: click-to-reveal details (keeps the page clean + interactive)
+      (function () {
+        const cards = Array.from(document.querySelectorAll(".highlight-card"));
+        const panels = Array.from(document.querySelectorAll(".panel"));
+
+        function closeAll() {
+          cards.forEach((c) => c.setAttribute("aria-expanded", "false"));
+          panels.forEach((p) => (p.hidden = true));
+        }
+
+        cards.forEach((card) => {
+          card.addEventListener("click", () => {
+            const id = card.getAttribute("data-panel");
+            const panel = document.getElementById(id);
+            const isOpen = card.getAttribute("aria-expanded") === "true";
+
+            closeAll();
+
+            if (!isOpen && panel) {
+              card.setAttribute("aria-expanded", "true");
+              panel.hidden = false;
+              panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            }
+          });
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeAll();
+        });
+      })();
+    </script>
   </body>
 </html>

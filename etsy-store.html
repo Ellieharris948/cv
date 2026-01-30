@@ -32,11 +32,17 @@
       @media (max-width:860px){.grid{grid-template-columns:1fr} img{height:300px}}
     </style>
   </head>
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+    <img class="lightbox-img" id="lightboxImg" alt="" />
+  </div>
+</div>
+
   <body>
     <div class="wrap">
       <div class="topbar">
         <a class="btn" href="index.html">← Back</a>
-        <a class="btn" href="https://www.gnashstudio.com" target="_blank" rel="noreferrer">gnashstudio.com</a>
       </div>
 
       <div class="card">
@@ -47,8 +53,8 @@
 
         <div class="body">
           <div class="grid">
-            <img src="images/etsy-figure-1.jpg" alt="Etsy product photo 1" />
-            <img src="images/etsy-figure-2.jpg" alt="Etsy product photo 2" />
+            <img class="zoomable" src="images/etsy-figure-1.jpg" alt="Etsy product photo 1" />
+            <img class="zoomable" src="images/etsy-figure-2.jpg" alt="Etsy product photo 2" />
           </div>
 
           <div>
@@ -62,12 +68,115 @@
             <li>Managed bespoke requests end-to-end: brief → production → delivery.</li>
             <li>Maintained a consistent workflow for fulfilment and customer updates.</li>
           </ul>
-
+<!-- 
           <div style="margin-top:14px;color:rgba(11,28,44,.75);font-size:13px;">
             Upload your images as: <strong>/images/etsy-figure-1.jpg</strong> and <strong>/images/etsy-figure-2.jpg</strong> (or rename in the code).
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
   </body>
+
+  <script>
+  (function () {
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lightboxImg");
+    const lbClose = document.getElementById("lightboxClose");
+
+    function openLightbox(src, alt) {
+      lbImg.src = src;
+      lbImg.alt = alt || "";
+      lb.classList.add("is-open");
+      lb.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lb.classList.remove("is-open");
+      lb.setAttribute("aria-hidden", "true");
+      lbImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("click", (e) => {
+      const img = e.target.closest("img.zoomable");
+      if (img) {
+        openLightbox(img.src, img.alt);
+        return;
+      }
+
+      // click outside image closes
+      if (e.target === lb) closeLightbox();
+    });
+
+    lbClose.addEventListener("click", closeLightbox);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLightbox();
+    });
+  })();
+</script>
+
 </html>
+
+
+
+
+
+<style>
+  /* --- Lightbox --- */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.78);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    z-index: 9999;
+  }
+
+  .lightbox.is-open {
+    display: flex;
+  }
+
+  .lightbox-inner {
+    width: min(1100px, 96vw);
+    max-height: 92vh;
+    position: relative;
+  }
+
+  .lightbox-img {
+    width: 100%;
+    height: auto;
+    max-height: 92vh;
+    object-fit: contain;
+    display: block;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .lightbox-close:hover {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  /* Make thumbnails feel clickable */
+  .zoomable {
+    cursor: zoom-in;
+  }
+</style>

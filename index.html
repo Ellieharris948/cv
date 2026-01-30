@@ -1,230 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- selly oak -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ellie Harris – Portfolio</title>
-
     <style>
       :root {
-        --paper: #f9f7f2;
+        --bg: #f9f7f2;
+        --paper: #ffffff;
         --ink: #0b1c2c;
-        --muted: rgba(11, 28, 44, 0.72);
-        --line: rgba(11, 28, 44, 0.55);
-        --soft-line: rgba(11, 28, 44, 0.18);
-        --teal: #78b8b1;
-        --accent: #f28a55;
-        --card: #ffffff;
-        --shadow: 0 18px 45px rgba(11, 28, 44, 0.10);
-        --shadow2: 0 12px 28px rgba(11, 28, 44, 0.10);
-        --radius: 22px;
+        --muted: rgba(11, 28, 44, 0.75);
+        --line: rgba(11, 28, 44, 0.22);
+        --teal: #7dbdb7;
+        --teal-dark: #1f5f60;
+        --orange: #f08a55;
+        --shadow: 0 10px 26px rgba(11, 28, 44, 0.12);
+        --radius: 18px;
       }
 
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
+      * {
+        box-sizing: border-box;
+      }
 
       body {
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.45;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .wrap {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 34px 22px 64px;
+      }
+
+      .top {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .id-card {
         background: var(--paper);
-        color: var(--ink);
-        margin: 0;
-        padding: 0;
-      }
-
-      a { color: inherit; }
-      img { max-width: 100%; display: block; }
-
-      /* ---- Top Bar ---- */
-      .topbar {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        background: rgba(249, 247, 242, 0.78);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--soft-line);
-      }
-
-      .topbar-inner {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 12px 18px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        text-decoration: none;
-      }
-
-      .brand-mark {
-        width: 38px;
-        height: 38px;
-        border-radius: 12px;
-        background: linear-gradient(135deg, var(--teal), #cfeceb);
-        border: 2px solid var(--line);
-        box-shadow: 0 10px 22px rgba(11, 28, 44, 0.10);
-      }
-
-      .brand-text {
-        line-height: 1.05;
-      }
-      .brand-text strong {
-        display: block;
-        font-weight: 900;
-        letter-spacing: 0.02em;
-      }
-      .brand-text span {
-        display: block;
-        font-size: 0.92rem;
-        color: var(--muted);
-      }
-
-      nav {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      .chip {
-        font-size: 0.92rem;
-        padding: 8px 12px;
-        border: 1.5px solid var(--line);
-        border-radius: 999px;
-        text-decoration: none;
-        color: var(--ink);
-        background: #fff;
-        transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-      }
-      .chip:hover {
-        transform: translateY(-1px);
-        border-color: var(--ink);
-        box-shadow: 0 10px 22px rgba(11, 28, 44, 0.08);
-      }
-
-      .chip.primary {
-        background: linear-gradient(180deg, #fff 0%, #fff7f3 100%);
-        border-color: rgba(242, 138, 85, 0.85);
-      }
-
-      /* ---- Layout ---- */
-      .container {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 28px 18px 60px;
-      }
-
-      section {
-        margin-top: 38px;
-      }
-
-      .section-head {
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        gap: 16px;
-        margin-bottom: 16px;
-      }
-
-      h2 {
-        margin: 0;
-        font-size: 1.75rem;
-        font-weight: 900;
-        letter-spacing: 0.01em;
-        display: inline-block;
-        border-bottom: 2px solid var(--ink);
-        padding-bottom: 6px;
-      }
-
-      .accent { color: var(--accent); }
-
-      .subtext {
-        margin: 8px 0 0;
-        color: var(--muted);
-        max-width: 72ch;
-        font-size: 1.03rem;
-        line-height: 1.55;
-      }
-
-      /* ---- Hero ---- */
-      .hero {
-        margin-top: 14px;
-        border: 2px solid var(--line);
+        border: 2px solid rgba(11, 28, 44, 0.65);
         border-radius: var(--radius);
-        background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+        overflow: hidden;
         box-shadow: var(--shadow);
-        overflow: hidden;
       }
 
-      .hero-top {
+      .id-head {
+        padding: 18px 22px 16px;
         display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 0;
+        grid-template-columns: 1fr;
+        gap: 6px;
       }
 
-      .hero-left {
-        padding: 28px 26px;
+      .name {
+        font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+        letter-spacing: 0.8px;
+        font-weight: 800;
+        font-size: 44px;
+        line-height: 1.02;
+        text-transform: uppercase;
       }
 
-      .hero-title {
-        font-size: 2.55rem;
-        margin: 0;
-        font-weight: 950;
-        letter-spacing: 0.01em;
+      .tagline {
+        color: var(--muted);
+        font-size: 15px;
+        max-width: 54ch;
       }
 
-      .hero-title .underline {
-        border-bottom: 4px solid var(--teal);
-        padding-bottom: 2px;
-      }
-
-      .hero-right {
-        padding: 22px;
-        border-left: 1px solid var(--soft-line);
-        background:
-          radial-gradient(1200px 420px at 80% 10%, rgba(120, 184, 177, 0.22), transparent 45%),
-          radial-gradient(900px 380px at 10% 90%, rgba(242, 138, 85, 0.18), transparent 50%),
-          #fff;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        justify-content: center;
-      }
-
-      .profile {
+      .id-strip {
+        background: rgba(125, 189, 183, 0.9);
+        border-top: 2px solid rgba(11, 28, 44, 0.65);
+        border-bottom: 2px solid rgba(11, 28, 44, 0.65);
+        padding: 12px 18px;
         display: grid;
-        grid-template-columns: 56px 1fr;
-        gap: 12px;
-        align-items: center;
+        gap: 6px;
+        font-size: 14px;
       }
 
-      .avatar {
-        width: 56px;
-        height: 56px;
-        border-radius: 999px;
-        border: 2px solid var(--line);
-        overflow: hidden;
-        background: #e9ecef;
+      .id-strip strong {
+        letter-spacing: 0.4px;
       }
 
-      .avatar img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+      .id-strip a {
+        text-decoration: underline;
+        text-underline-offset: 3px;
       }
 
-      .profile .meta strong { display: block; font-weight: 900; }
-      .profile .meta span { display: block; color: var(--muted); }
+      .id-body {
+        padding: 18px 22px 20px;
+        color: rgba(11, 28, 44, 0.82);
+        font-size: 15px;
+      }
 
-      .hero-links {
+      .cta-row {
+        margin-top: 14px;
         display: flex;
-        gap: 10px;
         flex-wrap: wrap;
+        gap: 10px;
       }
 
       .btn {
@@ -232,754 +117,724 @@
         align-items: center;
         justify-content: center;
         gap: 10px;
-        padding: 11px 14px;
-        border-radius: 14px;
-        border: 2px solid var(--line);
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 2px solid rgba(11, 28, 44, 0.65);
         background: #fff;
-        text-decoration: none;
-        font-weight: 800;
-        transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        box-shadow: 0 8px 16px rgba(11, 28, 44, 0.08);
+        font-weight: 650;
+        font-size: 14px;
       }
-      .btn:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 12px 26px rgba(11, 28, 44, 0.10);
-        border-color: var(--ink);
+
+      .btn.primary {
+        background: rgba(11, 28, 44, 0.92);
+        color: var(--bg);
       }
 
       .btn.accent {
-        border-color: rgba(242, 138, 85, 0.9);
-        background: linear-gradient(180deg, #fff 0%, #fff7f3 100%);
+        border-color: rgba(240, 138, 85, 0.95);
       }
 
-      .divider-bar {
-        height: 12px;
-        background: linear-gradient(90deg, var(--teal), rgba(120, 184, 177, 0.25), var(--accent));
-        border-top: 2px solid var(--line);
+      .btn:hover {
+        transform: translateY(-1px);
       }
 
-      /* ---- Highlights ---- */
-      .highlight-shell {
-        background: #fff;
-        border: 2px solid var(--line);
+      .quick-stats {
+        background: var(--paper);
+        border: 2px solid rgba(11, 28, 44, 0.65);
         border-radius: var(--radius);
-        padding: 18px;
-        box-shadow: var(--shadow2);
-      }
-
-      .highlight-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .highlight-card {
-        text-align: left;
-        border: 1.5px solid rgba(11, 28, 44, 0.22);
-        background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
-        border-radius: 18px;
-        padding: 14px 14px 12px;
-        cursor: pointer;
-        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .highlight-card:hover {
-        transform: translateY(-2px);
-        border-color: rgba(11, 28, 44, 0.55);
-        box-shadow: 0 10px 26px rgba(11, 28, 44, 0.12);
-      }
-
-      .highlight-card[aria-expanded="true"] {
-        border-color: var(--ink);
-        box-shadow: 0 14px 34px rgba(11, 28, 44, 0.14);
-      }
-
-      .kicker {
-        font-size: 0.78rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: rgba(11, 28, 44, 0.72);
-        margin-bottom: 8px;
-      }
-
-      .value {
-        font-size: 1.12rem;
-        line-height: 1.25;
-        color: var(--ink);
-      }
-
-      .strong { font-weight: 950; }
-
-      .dot {
-        opacity: 0.55;
-        padding: 0 6px;
-      }
-
-      .meta {
-        margin-top: 8px;
-        font-size: 0.92rem;
-        color: rgba(11, 28, 44, 0.72);
-      }
-
-      .panel-wrap { margin-top: 14px; }
-      .panel {
-        background: #fff;
-        border: 2px solid var(--line);
-        border-radius: var(--radius);
-        padding: 16px 18px;
-        box-shadow: 0 14px 30px rgba(11, 28, 44, 0.06);
-      }
-      .panel h3 { margin: 0 0 8px 0; }
-      .panel p { margin: 0 0 10px 0; color: var(--muted); }
-      .panel ul { margin: 0; padding-left: 18px; }
-
-      /* ---- TikTok ---- */
-      .carousel-container {
-        position: relative;
+        box-shadow: var(--shadow);
         overflow: hidden;
-        width: 100%;
-        margin: 0 auto;
       }
 
-      .carousel {
+      .qs-head {
+        padding: 18px 20px 14px;
+        border-bottom: 2px solid rgba(11, 28, 44, 0.65);
         display: flex;
-        gap: 18px;
-        animation: slowScroll 140s linear infinite;
-        will-change: transform;
-      }
-
-      @keyframes slowScroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-
-      .carousel-container:hover .carousel {
-        animation-play-state: paused;
-      }
-
-      .tiktok-card {
-        flex: 0 0 320px;
-        background: #fff;
-        border-radius: var(--radius);
-        border: 2px solid var(--line);
-        box-shadow: var(--shadow2);
-        padding: 12px;
-        transition: transform 0.22s ease;
-      }
-
-      .tiktok-card:hover {
-        transform: translateY(-2px);
-      }
-
-      .tiktok-frame {
-        width: 100%;
-        aspect-ratio: 9 / 16;
-        border-radius: 18px;
-        overflow: hidden;
-        border: 1px solid rgba(11, 28, 44, 0.18);
-        background: #000;
-      }
-
-      .tiktok-frame iframe {
-        width: 100%;
-        height: 100%;
-        border: 0;
-        display: block;
-      }
-
-      .tiktok-description {
-        margin-top: 10px;
-        font-size: 0.95rem;
-        color: rgba(11, 28, 44, 0.85);
-        line-height: 1.4;
-      }
-
-      /* ---- Projects ---- */
-      .grid-2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        align-items: baseline;
+        justify-content: space-between;
         gap: 16px;
       }
 
-      .project {
-        background: #fff;
-        border: 2px solid var(--line);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow2);
-        overflow: hidden;
-      }
-
-      .project .banner {
-        height: 170px;
-        background:
-          radial-gradient(900px 240px at 10% 20%, rgba(120, 184, 177, 0.28), transparent 55%),
-          radial-gradient(900px 240px at 80% 80%, rgba(242, 138, 85, 0.22), transparent 55%),
-          #fff;
-        border-bottom: 1px solid var(--soft-line);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: rgba(11, 28, 44, 0.65);
+      .qs-title {
         font-weight: 800;
+        letter-spacing: 0.3px;
+        font-size: 16px;
       }
 
-      .project .content {
-        padding: 16px 18px;
+      .qs-title span {
+        color: var(--orange);
       }
 
-      .project h3 {
-        margin: 0 0 8px 0;
-        font-size: 1.15rem;
+      .qs-note {
+        color: var(--muted);
+        font-size: 13px;
       }
 
-      .tags {
+      .qs-grid {
+        padding: 16px 18px 18px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .pill {
+        background: rgba(11, 28, 44, 0.05);
+        border: 1px solid rgba(11, 28, 44, 0.14);
+        border-radius: 14px;
+        padding: 12px 12px;
+      }
+
+      .pill .k {
+        font-size: 12px;
+        color: rgba(11, 28, 44, 0.68);
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+
+      .pill .v {
+        font-size: 20px;
+        font-weight: 850;
+        margin-top: 4px;
+      }
+
+      .pill .v span {
+        color: var(--orange);
+      }
+
+      .section {
+        margin-top: 26px;
+        background: var(--paper);
+        border: 2px solid rgba(11, 28, 44, 0.65);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .section-head {
+        padding: 18px 22px 14px;
+        border-bottom: 2px solid rgba(11, 28, 44, 0.65);
         display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 12px;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
       }
 
-      .tag {
-        font-size: 0.86rem;
-        padding: 7px 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(11, 28, 44, 0.22);
-        background: #fff;
-        color: rgba(11, 28, 44, 0.86);
+      .section-head h2 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 900;
+        letter-spacing: 0.2px;
+        text-transform: uppercase;
       }
 
-      /* ---- Experience (bottom) ---- */
+      .section-head h2 span {
+        color: var(--orange);
+      }
+
+      .section-body {
+        padding: 18px 22px 22px;
+      }
+
       .timeline {
         display: grid;
         gap: 14px;
       }
 
       .role {
-        background: #fff;
-        border: 2px solid var(--line);
-        border-radius: var(--radius);
-        padding: 16px 18px;
-        box-shadow: 0 14px 30px rgba(11, 28, 44, 0.06);
+        border: 1px solid rgba(11, 28, 44, 0.15);
+        border-radius: 16px;
+        overflow: hidden;
+        background: rgba(249, 247, 242, 0.65);
       }
 
-      .role-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 12px;
-        margin-bottom: 8px;
-        padding-bottom: 8px;
-        border-bottom: 1px solid rgba(11, 28, 44, 0.16);
+      .role-top {
+        padding: 14px 14px 12px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        align-items: start;
+        border-bottom: 1px solid rgba(11, 28, 44, 0.12);
+        background: rgba(255, 255, 255, 0.75);
       }
 
       .role-title {
-        color: var(--accent);
-        font-weight: 950;
+        font-weight: 900;
+        font-size: 16px;
       }
 
-      .role-dates {
-        color: rgba(11, 28, 44, 0.75);
-        font-weight: 700;
+      .role-title span {
+        color: var(--orange);
+      }
+
+      .role-meta {
+        text-align: right;
+        font-weight: 800;
+        font-size: 13px;
+        color: rgba(11, 28, 44, 0.72);
         white-space: nowrap;
       }
 
-      .role ul { margin: 10px 0 0; padding-left: 18px; }
-      .role li { margin: 7px 0; color: rgba(11, 28, 44, 0.88); }
-
-      /* ---- Footer ---- */
-      footer {
-        margin-top: 40px;
-        background: #001b3a;
-        color: #f9f7f2;
-        padding: 34px 18px;
+      .role-body {
+        padding: 12px 16px 14px;
+        color: rgba(11, 28, 44, 0.84);
       }
 
-      .footer-inner {
-        max-width: 1100px;
-        margin: 0 auto;
+      .role-body ul {
+        margin: 0;
+        padding-left: 18px;
+        display: grid;
+        gap: 6px;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .media-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .media-grid img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        border-radius: 14px;
+        border: 1px solid rgba(11, 28, 44, 0.18);
+        background: rgba(11, 28, 44, 0.06);
+      }
+
+      .tiktok-row {
         display: flex;
+        gap: 14px;
+        overflow: hidden;
+      }
+
+      .tiktok-track {
+        display: flex;
+        gap: 16px;
+        will-change: transform;
+        animation: slowScroll 160s linear infinite;
+      }
+
+      .tiktok-card {
+        flex: 0 0 288px;
+        background: #fff;
+        border-radius: 18px;
+        border: 1px solid rgba(11, 28, 44, 0.18);
+        box-shadow: 0 10px 22px rgba(11, 28, 44, 0.10);
+        overflow: hidden;
+      }
+
+      .video-wrap {
+        width: 100%;
+        aspect-ratio: 9 / 16;
+        background: rgba(11, 28, 44, 0.06);
+        overflow: hidden;
+      }
+
+      .video-wrap iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+        overflow: hidden;
+      }
+
+      .tiktok-info {
+        padding: 10px 12px 12px;
+        border-top: 1px solid rgba(11, 28, 44, 0.12);
+      }
+
+      .tiktok-info .m {
+        font-weight: 900;
+        font-size: 12px;
+        color: rgba(11, 28, 44, 0.72);
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+
+      .tiktok-info .d {
+        margin-top: 6px;
+        color: rgba(11, 28, 44, 0.82);
+        font-size: 13px;
+      }
+
+      .section:hover .tiktok-track {
+        animation-play-state: paused;
+      }
+
+      @keyframes slowScroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .footer {
+        margin-top: 24px;
+        background: rgba(11, 28, 44, 0.92);
+        color: var(--bg);
+        border-radius: var(--radius);
+        border: 2px solid rgba(11, 28, 44, 0.65);
+        padding: 18px 20px;
+        display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        gap: 14px;
-        flex-wrap: wrap;
+        gap: 12px;
+        box-shadow: var(--shadow);
       }
 
-      footer a {
-        color: #f9f7f2;
+      .footer a {
         text-decoration: underline;
+        text-underline-offset: 3px;
       }
 
-      /* ---- Responsive ---- */
+      /* clickable project cards */
+      .card-link {
+        display: block;
+        border-radius: 16px;
+      }
+
+      .card-link:focus-visible {
+        outline: 3px solid rgba(240, 138, 85, 0.9);
+        outline-offset: 4px;
+        border-radius: 18px;
+      }
+
+      .card-link .role {
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+
+      .card-link:hover .role {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 26px rgba(11, 28, 44, 0.14);
+      }
+
       @media (max-width: 980px) {
-        .hero-top { grid-template-columns: 1fr; }
-        .hero-right { border-left: 0; border-top: 1px solid var(--soft-line); }
-        .highlight-grid { grid-template-columns: 1fr 1fr; }
-        .grid-2 { grid-template-columns: 1fr; }
-        .tiktok-card { flex-basis: 300px; }
+        .top {
+          grid-template-columns: 1fr;
+        }
+        .split {
+          grid-template-columns: 1fr;
+        }
       }
 
-      @media (max-width: 560px) {
-        .hero-title { font-size: 2.05rem; }
-        .highlight-grid { grid-template-columns: 1fr; }
-        .tiktok-card { flex-basis: 78vw; }
-        .carousel { animation: slowScrollMobile 190s linear infinite; }
+      @media (max-width: 768px) {
+        .wrap {
+          padding: 22px 14px 52px;
+        }
+
+        .name {
+          font-size: 38px;
+        }
+
+        .qs-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .tiktok-card {
+          flex-basis: 76vw;
+        }
+
+        .tiktok-track {
+          animation: slowScrollMobile 220s linear infinite;
+        }
+
         @keyframes slowScrollMobile {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-100%); }
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+
+        .media-grid img {
+          height: 200px;
         }
       }
     </style>
   </head>
-
   <body>
-    <header class="topbar">
-      <div class="topbar-inner">
-        <a class="brand" href="#top">
-          <div class="brand-mark" aria-hidden="true"></div>
-          <div class="brand-text">
-            <strong>Eleanor Harris</strong>
-            <span>Developer • Artist • Animator</span>
-            <span>
-              Final-year Computer Science student at the University of Birmingham.
-              Took a year out in 2022–2023 for industry experience.
-            </span>
+    <div class="wrap">
+      <div class="top">
+        <div class="id-card">
+          <div class="id-head">
+            <div class="name">Eleanor<br />Harris</div>
+            <div class="tagline">Currently studying Computer Science at the University of Birmingham.</div>
           </div>
-        </a>
-      </div>
-    </header>
-
-    <main id="top" class="container">
-      <!-- HERO -->
-      <section class="hero" aria-label="Intro">
-        <div class="hero-top">
-          <div class="hero-left">
-            <h1 class="hero-title"><span class="underline">Eleanor</span> Harris</h1>
-            <p class="subtext">
-              Digital artist, coder, and designer focused on animation, creative storytelling, and building polished web experiences.
-            </p>
-
-            <div class="hero-links" style="margin-top: 16px;">
-              <a class="btn accent" href="#tiktok">Watch animations</a>
-              <a class="btn" href="#projects">See projects</a>
-              <a class="btn" href="#experience">Experience</a>
+          <div class="id-strip">
+            <div><strong>MOBILE:</strong> +44 7463961915</div>
+            <div><strong>EMAIL:</strong> ellieharris948@gmail.com</div>
+            <div>
+              <strong>PORTFOLIO:</strong>
+              <a href="https://www.gnashstudio.com" target="_blank" rel="noreferrer">https://www.gnashstudio.com</a>
             </div>
           </div>
+          <div class="id-body">
+            Creative technologist and digital artist with experience in front-end development, API integration, and digital product design.
+            Builds engaging applications, scales data systems, and grows creative platforms through hand-drawn animation and visual storytelling.
 
-          <div class="hero-right">
-            <div class="profile">
-              <div class="avatar">
-                <!-- Upload: /images/profile.jpg -->
-                <img src="images/profile.jpg" alt="Profile photo" />
-              </div>
-              <div class="meta">
-                <strong>Portfolio</strong>
-                <span><a href="https://www.gnashstudio.com" target="_blank" rel="noreferrer">www.gnashstudio.com</a></span>
-              </div>
-            </div>
-
-            <div class="hero-links">
-              <!-- Upload: /cv.pdf (or change to your file name) -->
-              <a class="btn" href="cv.pdf" target="_blank" rel="noreferrer">Download CV</a>
-              <a class="btn" href="https://www.tiktok.com/@gnashstudio_art" target="_blank" rel="noreferrer">TikTok</a>
-              <a class="btn" href="#projects">Case studies</a>
+            <div class="cta-row">
+              <a class="btn primary" href="#tiktok">View TikTok Highlights</a>
+              <a class="btn accent" href="#projects">See Projects</a>
+              <a class="btn" href="#" onclick="alert('Add your CV PDF link here')">Download CV</a>
             </div>
           </div>
         </div>
-        <div class="divider-bar" aria-hidden="true"></div>
-      </section>
 
-      <!-- HIGHLIGHTS -->
-      <section id="highlights">
-        <div class="section-head">
-          <h2>Highlights <span class="accent">at a glance</span></h2>
-        </div>
-
-        <div class="highlight-shell">
-          <div class="highlight-grid" role="list">
-            <button class="highlight-card" type="button" data-panel="h1" role="listitem" aria-controls="h1" aria-expanded="false">
-              <div class="kicker">TikTok</div>
-              <div class="value"><span class="strong">25k+</span> followers <span class="dot">•</span> <span class="accent strong">2M+</span> likes</div>
-              <div class="meta">Hand-drawn animation account</div>
-            </button>
-
-            <button class="highlight-card" type="button" data-panel="h2" role="listitem" aria-controls="h2" aria-expanded="false">
-              <div class="kicker">Viral videos</div>
-              <div class="value"><span class="strong">4</span> videos <span class="dot">•</span> <span class="accent strong">1M+</span> views</div>
-              <div class="meta">Top video: 2.2M views</div>
-            </button>
-
-            <button class="highlight-card" type="button" data-panel="h3" role="listitem" aria-controls="h3" aria-expanded="false">
-              <div class="kicker">Industry role</div>
-              <div class="value"><span class="strong">Front-end</span> <span class="dot">+</span> back-end support</div>
-              <div class="meta">App + website development</div>
-            </button>
-
-            <button class="highlight-card" type="button" data-panel="h4" role="listitem" aria-controls="h4" aria-expanded="false">
-              <div class="kicker">Data systems</div>
-              <div class="value"><span class="strong">APIs</span> <span class="dot">•</span> pipelines <span class="dot">•</span> <span class="accent strong">SQL</span></div>
-              <div class="meta">Large-scale ingestion work</div>
-            </button>
+        <div class="quick-stats">
+          <div class="qs-head">
+            <div class="qs-title">Highlights <span>at a glance</span></div>
           </div>
-
-          <div class="panel-wrap" aria-live="polite">
-            <div class="panel" id="h1" hidden>
-              <h3>TikTok</h3>
-              <p>Series-based animation, character-driven moments, and punchy storytelling built for mobile.</p>
-              <ul>
-                <li>Strong repeat viewers and engagement</li>
-                <li>Clean readability and pacing optimised for short form</li>
-              </ul>
+          <div class="qs-grid">
+            <div class="pill">
+              <div class="k">TikTok</div>
+              <div class="v">25k+ followers · <span>2M+</span> likes</div>
             </div>
-
-            <div class="panel" id="h2" hidden>
-              <h3>Viral reach</h3>
-              <p>Multiple videos crossed 1M+ views with one reaching 2.2M views and 500k+ likes.</p>
-              <ul>
-                <li>Focused hooks, timing, and clear visual beats</li>
-                <li>Consistent posting and recognisable style</li>
-              </ul>
+            <div class="pill">
+              <div class="k">Viral videos</div>
+              <div class="v">4 videos · <span>1M+</span> views</div>
             </div>
-
-            <div class="panel" id="h3" hidden>
-              <h3>Soft Pauer</h3>
-              <p>Built and maintained user-facing features for a live app + website, with occasional server-side work.</p>
-              <ul>
-                <li>Responsive UI improvements and bug fixes</li>
-                <li>Testing support and release-ready changes</li>
-              </ul>
+            <div class="pill">
+              <div class="k">Year-out role</div>
+              <div class="v">Front-end + backend support</div>
             </div>
-
-            <div class="panel" id="h4" hidden>
-              <h3>IP Registry</h3>
-              <p>Expanded and populated a large database using automated pipelines and API integrations.</p>
-              <ul>
-                <li>Cleaned, validated, and structured data for ingestion</li>
-                <li>Synced from multiple external sources</li>
-              </ul>
+            <div class="pill">
+              <div class="k">Data systems</div>
+              <div class="v">APIs · pipelines · SQL</div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- TIKTOK -->
-      <section id="tiktok">
-        <div class="section-head">
-          <h2>TikTok Animation <span class="accent">Highlights</span></h2>
-        </div>
-
-        <p class="subtext">
-          A selection of hand-drawn animation work.
-        </p>
-
-        <div class="carousel-container" style="margin-top: 16px;">
-          <div class="carousel">
-            <!-- TikTok Embed (iframe v2) -->
-            <div class="tiktok-card">
-              <div class="tiktok-frame">
-                <iframe
-                  src="https://www.tiktok.com/embed/v2/7385151704909630752?autoplay=1&mute=1"
-                  allow="autoplay; encrypted-media; fullscreen"
-                  scrolling="no"
-                  title="TikTok video 7385151704909630752"
-                ></iframe>
-              </div>
-              <div class="tiktok-description">
-                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
-                Description of the animation or its story.
-              </div>
-            </div>
-
-            <div class="tiktok-card">
-              <div class="tiktok-frame">
-                <iframe
-                  src="https://www.tiktok.com/embed/v2/7360701400831003937?autoplay=1&mute=1"
-                  allow="autoplay; encrypted-media; fullscreen"
-                  scrolling="no"
-                  title="TikTok video 7360701400831003937"
-                ></iframe>
-              </div>
-              <div class="tiktok-description">
-                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
-                Description of the animation or its story.
-              </div>
-            </div>
-
-            <div class="tiktok-card">
-              <div class="tiktok-frame">
-                <iframe
-                  src="https://www.tiktok.com/embed/v2/7374028299065953568?autoplay=1&mute=1"
-                  allow="autoplay; encrypted-media; fullscreen"
-                  scrolling="no"
-                  title="TikTok video 7374028299065953568"
-                ></iframe>
-              </div>
-              <div class="tiktok-description">
-                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
-                Description of the animation or its story.
-              </div>
-            </div>
-
-            <div class="tiktok-card">
-              <div class="tiktok-frame">
-                <iframe
-                  src="https://www.tiktok.com/embed/v2/7359345460630310176?autoplay=1&mute=1"
-                  allow="autoplay; encrypted-media; fullscreen"
-                  scrolling="no"
-                  title="TikTok video 7359345460630310176"
-                ></iframe>
-              </div>
-              <div class="tiktok-description">
-                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
-                Description of the animation or its story.
-              </div>
-            </div>
-
-            <div class="tiktok-card">
-              <div class="tiktok-frame">
-                <iframe
-                  src="https://www.tiktok.com/embed/v2/7397433978149440801?autoplay=1&mute=1"
-                  allow="autoplay; encrypted-media; fullscreen"
-                  scrolling="no"
-                  title="TikTok video 7397433978149440801"
-                ></iframe>
-              </div>
-              <div class="tiktok-description">
-                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
-                Description of the animation or its story.
-              </div>
-            </div>
-
-            <!-- If you meant this one (your latest code used 7398133168...) keep it here -->
-            <div class="tiktok-card">
-              <div class="tiktok-frame">
-                <iframe
-                  src="https://www.tiktok.com/embed/v2/7398133168327003424?autoplay=1&mute=1"
-                  allow="autoplay; encrypted-media; fullscreen"
-                  scrolling="no"
-                  title="TikTok video 7398133168327003424"
-                ></iframe>
-              </div>
-              <div class="tiktok-description">
-                <strong>Metrics:</strong> [Followers, Likes, Views]<br />
-                Description of the animation or its story.
-              </div>
-            </div>
-
-            <!-- duplicate set for smoother looping -->
-            <div class="tiktok-card" aria-hidden="true">
-              <div class="tiktok-frame">
-                <iframe
-                  src="https://www.tiktok.com/embed/v2/7385151704909630752?autoplay=1&mute=1"
-                  allow="autoplay; encrypted-media; fullscreen"
-                  scrolling="no"
-                  title="TikTok video duplicate"
-                ></iframe>
-              </div>
-              <div class="tiktok-description">
-                <strong>More:</strong> @gnashstudio_art
-              </div>
-            </div>
-
-            <div class="tiktok-card" aria-hidden="true">
-              <div class="tiktok-frame">
-                <iframe
-                  src="https://www.tiktok.com/embed/v2/7360701400831003937?autoplay=1&mute=1"
-                  allow="autoplay; encrypted-media; fullscreen"
-                  scrolling="no"
-                  title="TikTok video duplicate"
-                ></iframe>
-              </div>
-              <div class="tiktok-description">
-                <strong>More:</strong> @gnashstudio_art
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROJECTS -->
-      <section id="projects">
-        <div class="section-head">
-          <h2>Projects <span class="accent">& case studies</span></h2>
-        </div>
-
-        <p class="subtext">
-          Selected work across web, data systems, and design.
-        </p>
-
-        <div class="grid-2" style="margin-top: 16px;">
-          <article class="project">
-            <div class="banner">
-              <!-- Upload: /images/project-putti-redesign.jpg and replace this banner div with an <img> if you prefer -->
-              Putti Studio — Shopify redesign
-            </div>
-            <div class="content">
-              <h3>Putti Studio Website Redesign</h3>
-              <p class="subtext" style="margin: 0;">
-                Created brand assets and helped implement a refreshed Shopify theme for an existing company website.
-              </p>
-              <div class="tags">
-                <span class="tag">Shopify</span>
-                <span class="tag">HTML/CSS</span>
-                <span class="tag">Brand assets</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="banner">
-              Putti Studio — company website build
-            </div>
-            <div class="content">
-              <h3>Putti Studio Company Website</h3>
-              <p class="subtext" style="margin: 0;">
-                Built pages from design briefs, responsive layouts, and continued visual refinement across breakpoints.
-              </p>
-              <div class="tags">
-                <span class="tag">Responsive UI</span>
-                <span class="tag">Front-end build</span>
-                <span class="tag">Design-to-code</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="banner">
-              IP Registry — data pipelines
-            </div>
-            <div class="content">
-              <h3>Database Expansion & API Integrations</h3>
-              <p class="subtext" style="margin: 0;">
-                Built integrations to pull and sync information from multiple sources, then cleaned and validated data for ingestion.
-              </p>
-              <div class="tags">
-                <span class="tag">APIs</span>
-                <span class="tag">SQL</span>
-                <span class="tag">Data pipelines</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="banner">
-              Etsy — product + fulfilment
-            </div>
-            <div class="content">
-              <h3>3D Printing & Custom Apparel</h3>
-              <p class="subtext" style="margin: 0;">
-                Designed, produced, and fulfilled bespoke orders — from modelling/printing through finishing and customer delivery.
-              </p>
-              <div class="tags">
-                <span class="tag">3D printing</span>
-                <span class="tag">Product design</span>
-                <span class="tag">Customer comms</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- EXPERIENCE (MOVED TO BOTTOM) -->
-      <section id="experience">
-        <div class="section-head">
-          <h2>Experience <span class="accent">& impact</span></h2>
-        </div>
-
-        <div class="timeline">
-          <article class="role">
-            <header class="role-head">
-              <h3>Soft Pauer <span class="role-title">— Junior Software Developer</span></h3>
-              <div class="role-dates">2022 – 2023</div>
-            </header>
-            <ul>
-              <li><strong>Front-end:</strong> Built and maintained user-facing features for a live app and website, improving usability and responsiveness.</li>
-              <li><strong>Back-end support:</strong> Helped with API endpoints, database integration, and server-side fixes when needed.</li>
-              <li><strong>Quality:</strong> Debugged issues and supported testing/release work.</li>
-            </ul>
-          </article>
-
-          <article class="role">
-            <header class="role-head">
-              <h3>Entrepreneur <span class="role-title">— Etsy store</span></h3>
-              <div class="role-dates">2022 – 2023</div>
-            </header>
-            <ul>
-              <li>Designed and 3D-printed custom figurines; painted and finished products.</li>
-              <li>Created custom apparel and handled customer communication end-to-end.</li>
-            </ul>
-          </article>
-
-          <article class="role">
-            <header class="role-head">
-              <h3>IP Registry <span class="role-title">— Software Developer</span></h3>
-              <div class="role-dates">Summer 2025</div>
-            </header>
-            <ul>
-              <li>Expanded and populated a large database using automated data pipelines.</li>
-              <li>Integrated external sources via APIs; cleaned and validated data for ingestion.</li>
-            </ul>
-          </article>
-
-          <article class="role">
-            <header class="role-head">
-              <h3>TikTok <span class="role-title">— Art & Animation creator</span></h3>
-              <div class="role-dates">2023 – Present</div>
-            </header>
-            <ul>
-              <li>25k+ followers and 2M+ total likes.</li>
-              <li>4 videos reached 1M+ views; top video reached 2.2M views and 500k+ likes.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="footer-inner">
-        <div>
-          <strong>Ellie Harris</strong><br />
-          <span style="opacity: 0.9;">Portfolio:</span>
-          <a href="https://www.gnashstudio.com" target="_blank" rel="noreferrer">gnashstudio.com</a>
-        </div>
-
-        <div>
-          <a href="https://www.tiktok.com/@gnashstudio_art" target="_blank" rel="noreferrer">TikTok</a>
-          &nbsp; • &nbsp;
-          <a href="#top">Back to top</a>
         </div>
       </div>
-    </footer>
 
-    <script>
-      // Highlights: click-to-reveal details (keeps the page clean + interactive)
-      (function () {
-        const cards = Array.from(document.querySelectorAll(".highlight-card"));
-        const panels = Array.from(document.querySelectorAll(".panel"));
+      <div class="section" id="experience">
+        <div class="section-head">
+          <h2>Experience <span>& impact</span></h2>
+        </div>
+        <div class="section-body">
+          <div class="timeline">
+            <div class="role">
+              <div class="role-top">
+                <div>
+                  <div class="role-title"><span>Soft Pauer</span> – Junior Software Developer</div>
+                  <div style="color: rgba(11, 28, 44, 0.72); font-size: 13px; font-weight: 700;">Year out before university (industry experience)</div>
+                </div>
+                <div class="role-meta">2022 – 2023</div>
+              </div>
+              <div class="role-body">
+                <ul>
+                  <li><strong>Front-End Development:</strong> Built and maintained user-facing features for an app + website, improving responsiveness and UX.</li>
+                  <li><strong>Back-End Support:</strong> Contributed to server-side logic, database integration, and API endpoints for core features.</li>
+                  <li><strong>Quality & Debugging:</strong> Fixed production issues, improved performance, and contributed to review/testing workflows.</li>
+                </ul>
+              </div>
+            </div>
 
-        function closeAll() {
-          cards.forEach((c) => c.setAttribute("aria-expanded", "false"));
-          panels.forEach((p) => (p.hidden = true));
-        }
+            <div class="role">
+              <div class="role-top">
+                <div>
+                  <div class="role-title"><span>IP Registry</span> – Software Developer (Data + APIs)</div>
+                  <div style="color: rgba(11, 28, 44, 0.72); font-size: 13px; font-weight: 700;">Data ingestion + database expansion</div>
+                </div>
+                <div class="role-meta">Summer 2025</div>
+              </div>
+              <div class="role-body">
+                <ul>
+                  <li><strong>Database Expansion:</strong> Expanded and populated a large-scale dataset using automated pipelines.</li>
+                  <li><strong>API Integration:</strong> Built integrations to pull/synchronise data from multiple external sources.</li>
+                  <li><strong>Data Processing:</strong> Cleaned, structured, and validated data for production ingestion.</li>
+                </ul>
+              </div>
+            </div>
 
-        cards.forEach((card) => {
-          card.addEventListener("click", () => {
-            const id = card.getAttribute("data-panel");
-            const panel = document.getElementById(id);
-            const isOpen = card.getAttribute("aria-expanded") === "true";
+            <div class="role">
+              <div class="role-top">
+                <div>
+                  <div class="role-title"><span>Entrepreneur</span> – Etsy Store</div>
+                  <div style="color: rgba(11, 28, 44, 0.72); font-size: 13px; font-weight: 700;">Product design + customer delivery</div>
+                </div>
+                <div class="role-meta">2022 – 2023</div>
+              </div>
+              <div class="role-body">
+                <ul>
+                  <li><strong>Product Design:</strong> Designed, 3D-printed, painted and finished figurines + custom apparel.</li>
+                  <li><strong>Commercial Outcome:</strong> Generated £2,000+ profit through consistent orders and repeat customers.</li>
+                </ul>
+              </div>
+            </div>
 
-            closeAll();
+            <div class="role">
+              <div class="role-top">
+                <div>
+                  <div class="role-title"><span>TikTok Art & Animation</span> – Creator</div>
+                  <div style="color: rgba(11, 28, 44, 0.72); font-size: 13px; font-weight: 700;">Hand-drawn animation + storytelling</div>
+                </div>
+                <div class="role-meta">2023 – Present</div>
+              </div>
+              <div class="role-body">
+                <ul>
+                  <li><strong>Growth:</strong> Built to 25,000+ followers and 2M+ likes; multiple 1M+ view videos (top: 2.2M views).</li>
+                  <li><strong>Craft:</strong> Frame-by-frame animation using Procreate and digital illustration tools.</li>
+                  <li><strong>Creative Strategy:</strong> Story-driven formats optimised for engagement and retention.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-            if (!isOpen && panel) {
-              card.setAttribute("aria-expanded", "true");
-              panel.hidden = false;
-              panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
-            }
-          });
-        });
+      <div class="section" id="tiktok">
+        <div class="section-head">
+          <h2>TikTok <span>animation highlights</span></h2>
+        </div>
+        <div class="section-body">
+          <div class="tiktok-row">
+            <div class="tiktok-track">
+              <div class="tiktok-card">
+                <div class="video-wrap">
+                  <iframe
+                    src="https://www.tiktok.com/embed/v2/7385151704909630752?lang=en&autoplay=1&muted=1&loop=1"
+                    allow="autoplay; encrypted-media;"
+                    scrolling="no"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </div>
+                <div class="tiktok-info">
+                  <div class="m">Metrics</div>
+                  <div class="d">[Views / Likes / Shares] · Short description here.</div>
+                </div>
+              </div>
 
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") closeAll();
-        });
-      })();
-    </script>
+              <div class="tiktok-card">
+                <div class="video-wrap">
+                  <iframe
+                    src="https://www.tiktok.com/embed/v2/7360701400831003937?lang=en&autoplay=1&muted=1&loop=1"
+                    allow="autoplay; encrypted-media;"
+                    scrolling="no"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </div>
+                <div class="tiktok-info">
+                  <div class="m">Metrics</div>
+                  <div class="d">[Views / Likes / Shares] · Short description here.</div>
+                </div>
+              </div>
+
+              <div class="tiktok-card">
+                <div class="video-wrap">
+                  <iframe
+                    src="https://www.tiktok.com/embed/v2/7374028299065953568?lang=en&autoplay=1&muted=1&loop=1"
+                    allow="autoplay; encrypted-media;"
+                    scrolling="no"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </div>
+                <div class="tiktok-info">
+                  <div class="m">Metrics</div>
+                  <div class="d">[Views / Likes / Shares] · Short description here.</div>
+                </div>
+              </div>
+
+              <div class="tiktok-card">
+                <div class="video-wrap">
+                  <iframe
+                    src="https://www.tiktok.com/embed/v2/7359345460630310176?lang=en&autoplay=1&muted=1&loop=1"
+                    allow="autoplay; encrypted-media;"
+                    scrolling="no"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </div>
+                <div class="tiktok-info">
+                  <div class="m">Metrics</div>
+                  <div class="d">[Views / Likes / Shares] · Short description here.</div>
+                </div>
+              </div>
+
+              <div class="tiktok-card">
+                <div class="video-wrap">
+                  <iframe
+                    src="https://www.tiktok.com/embed/v2/7397433978149440801?lang=en&autoplay=1&muted=1&loop=1"
+                    allow="autoplay; encrypted-media;"
+                    scrolling="no"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </div>
+                <div class="tiktok-info">
+                  <div class="m">Metrics</div>
+                  <div class="d">[Views / Likes / Shares] · Short description here.</div>
+                </div>
+              </div>
+
+              <div class="tiktok-card">
+                <div class="video-wrap">
+                  <iframe
+                    src="https://www.tiktok.com/embed/v2/7398133168327003424?lang=en&autoplay=1&muted=1&loop=1"
+                    allow="autoplay; encrypted-media;"
+                    scrolling="no"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </div>
+                <div class="tiktok-info">
+                  <div class="m">Metrics</div>
+                  <div class="d">[Views / Likes / Shares] · Short description here.</div>
+                </div>
+              </div>
+
+              <div class="tiktok-card">
+                <div class="video-wrap">
+                  <iframe
+                    src="https://www.tiktok.com/embed/v2/7385151704909630752?lang=en&autoplay=1&muted=1&loop=1"
+                    allow="autoplay; encrypted-media;"
+                    scrolling="no"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </div>
+                <div class="tiktok-info">
+                  <div class="m">Metrics</div>
+                  <div class="d">[Views / Likes / Shares] · Short description here.</div>
+                </div>
+              </div>
+
+              <div class="tiktok-card">
+                <div class="video-wrap">
+                  <iframe
+                    src="https://www.tiktok.com/embed/v2/7360701400831003937?lang=en&autoplay=1&muted=1&loop=1"
+                    allow="autoplay; encrypted-media;"
+                    scrolling="no"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </div>
+                <div class="tiktok-info">
+                  <div class="m">Metrics</div>
+                  <div class="d">[Views / Likes / Shares] · Short description here.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 14px; color: rgba(11, 28, 44, 0.72); font-size: 13px;">
+            TikTok:
+            <a
+              href="https://www.tiktok.com/@gnashstudio_art"
+              target="_blank"
+              rel="noreferrer"
+              style="text-decoration: underline; text-underline-offset: 3px;"
+              >@gnashstudio_art</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="projects">
+        <div class="section-head">
+          <h2>Professional <span>design & web</span></h2>
+          <div class="qs-note">Click a card for the full case study</div>
+        </div>
+
+        <div class="section-body">
+          <div class="split">
+            <a class="card-link" href="putti-redesign.html">
+              <div class="role" style="background: rgba(255, 255, 255, 0.7);">
+                <div class="role-top">
+                  <div class="role-title"><span>Complete Pet</span> – Website Redesign</div>
+                  <div class="role-meta">Shopify</div>
+                </div>
+                <div class="role-body">
+                  <div style="margin-bottom: 12px; color: rgba(11, 28, 44, 0.82);">
+                    Logo refresh + theme implementation for an existing Shopify website.
+                  </div>
+                  <div class="media-grid">
+                    <img src="images/putti-before.jpg" alt="Before redesign" />
+                    <img src="images/putti-after.jpg" alt="After redesign" />
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a class="card-link" href="putti-company-website.html">
+              <div class="role" style="background: rgba(255, 255, 255, 0.7);">
+                <div class="role-top">
+                  <div class="role-title"><span>Putti Studio</span> – Company Website</div>
+                  <div class="role-meta">Build</div>
+                </div>
+                <div class="role-body">
+                  <div style="margin-bottom: 12px; color: rgba(11, 28, 44, 0.82);">
+                    Built pages from design briefs with responsive layouts and ongoing refinements.
+                  </div>
+                  <div class="media-grid">
+                    <img src="images/putti-newsite1.jpg" alt="Putti company site design" />
+                    <img src="images/putti-newsite2.jpg" alt="Putti company site design work in progress" />
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div style="height: 16px;"></div>
+
+          <div class="split">
+            <a class="card-link" href="pet-footprint-logo.html">
+              <div class="role" style="background: rgba(255, 255, 255, 0.7);">
+                <div class="role-top">
+                  <div class="role-title"><span>Pet Footprint</span> – Logo Design</div>
+                  <div class="role-meta">Brand</div>
+                </div>
+                <div class="role-body">
+                  <div style="margin-bottom: 12px; color: rgba(11, 28, 44, 0.82);">
+                    Logo concepts + refinements, designed for clean use across web and social.
+                  </div>
+                  <div class="media-grid">
+                    <img src="images/petfootprint-1.jpg" alt="Pet Footprint logo concept" />
+                    <img src="images/petfootprint-2.jpg" alt="Pet Footprint logo mockup" />
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a class="card-link" href="etsy-store.html">
+              <div class="role" style="background: rgba(255, 255, 255, 0.7);">
+                <div class="role-top">
+                  <div class="role-title"><span>Etsy</span> – Product + Fulfilment</div>
+                  <div class="role-meta">3D print</div>
+                </div>
+                <div class="role-body">
+                  <div style="margin-bottom: 12px; color: rgba(11, 28, 44, 0.82);">
+                    Custom 3D prints and apparel — from design to finishing and customer delivery.
+                  </div>
+                  <div class="media-grid">
+                    <img src="images/etsy-figure-1.jpg" alt="3D printed figure" />
+                    <img src="images/etsy-figure-2.jpg" alt="3D printed figure" />
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div style="margin-top: 14px; color: rgba(11, 28, 44, 0.72); font-size: 13px;">
+            More work + case studies:
+            <a href="https://www.gnashstudio.com" target="_blank" rel="noreferrer" style="text-decoration: underline; text-underline-offset: 3px;"
+              >gnashstudio.com</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div style="font-weight: 850; letter-spacing: 0.3px;">Ellie Harris</div>
+        <div style="opacity: 0.9; font-size: 14px;">
+          <a href="https://www.tiktok.com/@gnashstudio_art" target="_blank" rel="noreferrer">TikTok</a> ·
+          <a href="https://www.gnashstudio.com" target="_blank" rel="noreferrer">Portfolio</a> ·
+          <a href="#" onclick="alert('Add your CV PDF link here')">Download CV</a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
